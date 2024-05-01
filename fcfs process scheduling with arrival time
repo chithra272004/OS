@@ -3,7 +3,7 @@
 int main()
 {
     int n, i, pid[15], at[15], bt[15], ct[15], wt[15], tat[15];
-    float twt, ttat, awt, atat;
+    float twt=0.0, ttat=0.0, awt, atat;
     printf("Enter the number of processes: ");
     scanf("%d", &n);
     printf("Enter the process id: ");
