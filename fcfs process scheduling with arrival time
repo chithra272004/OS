@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main()
+void main()
 {
     int n, i, pid[15], at[15], bt[15], ct[15], wt[15], tat[15];
     float twt=0.0, ttat=0.0, awt, atat;
