@@ -1,0 +1,62 @@
+#include <stdio.h>
+struct process{
+    int size;
+    int allocated;
+};
+void main()
+{
+    int n, p, i, j, best;
+    printf("Enter the number of memory location\n");
+    scanf("%d", &n);
+    int a[n];
+    printf("Enter the size of memory location\n");
+    for(i=0; i<n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    printf("Enter the number of process\n");
+    scanf("%d", &p);
+    struct process b[p];
+    printf("Enter the size of each process\n");
+    for(i=0; i<p; i++)
+    {
+        scanf("%d", &b[i].size);
+        b[i].allocated=-1;
+    }
+    for(i=0; i<p; i++)
+    {
+        best=-1;
+        for(j=0; j<n; j++)
+        {
+            if(a[j]>=b[i].size)
+            {
+                if(best==-1)
+                {
+                    best=j;
+                }
+                else if(a[j]<a[best])
+                {
+                    best=j;
+                }
+            }
+        }
+        if(best!=-1)
+        {
+            b[i].allocated=a[best];
+            a[best]=a[best]-b[i].size;
+        }
+    }
+    printf("\nSI.no\tProcess\tAllocated\n");
+    for(i=0; i<p; i++)
+    {
+        if(b[i].allocated!=-1)
+        {
+            printf("%d\t%d\t%d\n", i+1, b[i].size, b[i].allocated);
+        }
+        else
+        {
+            printf("%d\t%d\tNot allocated\n", i+1, b[i].size);
+        }
+    }
+}
+
